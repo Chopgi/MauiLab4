@@ -18,21 +18,21 @@ namespace MauiLab4
                     Name = "Fish Tacos",
                     Description = "Made with fish.",
                     Price = "$1.99",
-                    ImageUrl ="fish_taco.png"
+                    imageSource ="fish_taco.png"
                 },
                 new Product
                 {
                     Name = "Birria Tacos",
                     Description = "Tacos made with birria.",
                     Price = "$2.99",
-                    ImageUrl ="birria_taco.png"
+                    imageSource ="birria_taco.png"
                 },
                 new Product
                 {
                     Name = "American Tacos",
                     Description = "Made with a hard shell.",
                     Price = "$0.99",
-                    ImageUrl ="american_tacos.png"
+                    imageSource ="american_tacos.png"
                 }
             }));
 
@@ -43,21 +43,21 @@ namespace MauiLab4
                     Name = "Hotdog",
                     Description = "Classic Hot Dog.",
                     Price = "$1.45",
-                    ImageUrl ="plain_hot_dog.png"
+                    imageSource ="plain_hot_dog.png"
                 },
                 new Product
                 {
                     Name = "Chili Dog",
                     Description = "Chili Dog, made with chili and onion.",
                     Price = "$2.99",
-                    ImageUrl ="chili_hot_dog.png"
+                    imageSource ="chili_dog.png"
                 },
                 new Product
                 {
                     Name = "Veggie Dog",
                     Description = "Hot dog with guacamole.",
                     Price = "$1.99",
-                    ImageUrl ="veggie_hot_dog.png"
+                    imageSource ="veggie_hot_dog.png"
                 }
             }));
 
@@ -68,21 +68,21 @@ namespace MauiLab4
                     Name = "Hamburger",
                     Description = "Basic hamburger.",
                     Price = "$2.45",
-                    ImageUrl ="plain_burger.png"
+                    imageSource ="plain_burger.png"
                 },
                 new Product
                 {
                     Name = "Bic Mac style Burger",
                     Description = "Just like the Big Mac, but with a homemade taste.",
                     Price = "$3.00",
-                    ImageUrl ="big_mac_burger.png"
+                    imageSource ="big_mac_burger.png"
                 },
                 new Product
                 {
                     Name = "Char Burger",
                     Description = "Toasted for taste.",
                     Price = "$3.50",
-                    ImageUrl ="char_burger.png"
+                    imageSource ="char_burger.png"
                 }
             }));
 

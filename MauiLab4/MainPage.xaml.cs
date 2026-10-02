@@ -12,10 +12,12 @@
             myListView.ItemsSource = productGroups.ProductList;
             myListView.IsGroupingEnabled = true;
             myListView.SelectionMode = ListViewSelectionMode.Single;
+            myListView.HasUnevenRows = true;
 
-            myListView.GroupDisplayBinding = new Binding("GroupName");
-            myListView.SetBinding(Label.TextProperty, new Binding("Name", source : productGroups.ProductList));
-            myListView.RowHeight = 80;
+            myListView.GroupHeaderTemplate = new DataTemplate(typeof(GroupHeader));
+
+
+            //myListView.RowHeight = 80;
             myListView.BackgroundColor = Colors.DarkGoldenrod;
             myListView.SeparatorColor = Colors.LightCoral;
             
@@ -23,6 +25,17 @@
             Title = "Product List";
 
             myListView.ItemTemplate = new DataTemplate(typeof(ListofProductsCell));
+
+
+            myListView.ItemTapped += async (sender, e) =>
+            {
+                Product item = (Product)e.Item;
+                await DisplayAlert("Item Selected", item.Name.ToString() +
+                    " was selected.\nDescription: "+item.Description+"\nPrice: " + item.Price, "Confirm");
+                ((ListView)sender).SelectedItem = null;
+            };
+
+
         }
 
 
@@ -52,28 +65,34 @@
 
                 VerticalStackLayout vstack = new VerticalStackLayout
                 {
-                    //Padding = new Thickness(15,10,15,10),
-                    Spacing = 20,
-                    WidthRequest = 500,
+                    Padding = new Thickness(15,10,15,0),
+                    Spacing = 10,
+                    HorizontalOptions = LayoutOptions.Fill,
+                    MinimumHeightRequest = 80,
+                    WidthRequest = 400, //Prices are all aligned to the right with this fixed width. However, this is not a proper solution for screens of various sizes, such as mobile phones. 
                     Children =
                     {
                         nameLabel, descriptionLabel
                     }
                 };
 
+
+
                 Image productImage = new Image
                 {
-                    HeightRequest = 25,
-                    WidthRequest = 25,
+                    HeightRequest = 75,
+                    WidthRequest = 75,
                     Aspect = Aspect.AspectFill,
-                    HorizontalOptions = LayoutOptions.Start
+                    HorizontalOptions = LayoutOptions.Start,
+                    VerticalOptions = LayoutOptions.Center
                 };
-                productImage.SetBinding(Image.SourceProperty, "ImageUrl");
+                productImage.SetBinding(Image.SourceProperty, "imageSource");
 
 
                 Label priceLabel = new Label
                 {
                     HorizontalOptions = LayoutOptions.End,
+                    VerticalOptions = LayoutOptions.Center,
                     FontSize = 15,
                     FontAttributes = FontAttributes.Bold,
                     TextColor = Colors.Green
@@ -84,12 +103,14 @@
                 {
                     Padding = new Thickness(20, 10, 20, 10),
                     Spacing = 15,
+                    HorizontalOptions = LayoutOptions.Fill,
                     //HeightRequest = 40,
                     Children =
                     {
                         productImage, vstack, priceLabel
                     }
                 };
+                View = hstack;
             }
         }
     }
