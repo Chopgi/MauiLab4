@@ -14,7 +14,7 @@
             myListView.SelectionMode = ListViewSelectionMode.Single;
 
             myListView.GroupDisplayBinding = new Binding("GroupName");
-            myListView.SetBinding(ItemsView.ItemsSourceProperty, "ProductList");
+            myListView.SetBinding(Label.TextProperty, new Binding("Name", source : productGroups.ProductList));
             myListView.RowHeight = 80;
             myListView.BackgroundColor = Colors.DarkGoldenrod;
             myListView.SeparatorColor = Colors.LightCoral;

@@ -15,23 +15,23 @@ namespace MauiLab4
             {
                 new Product
                 {
-                    Name = "Taco 1",
-                    Description = "This is a description for Taco 1",
+                    Name = "Fish Tacos",
+                    Description = "Made with fish.",
                     Price = "$1.99",
                     ImageUrl ="fish_taco.png"
                 },
                 new Product
                 {
-                    Name = "Taco 2",
-                    Description = "This is a description for Taco 1",
-                    Price = "$1.99",
+                    Name = "Birria Tacos",
+                    Description = "Tacos made with birria.",
+                    Price = "$2.99",
                     ImageUrl ="birria_taco.png"
                 },
                 new Product
                 {
-                    Name = "Taco 3",
-                    Description = "This is a description for Taco 1",
-                    Price = "$1.99",
+                    Name = "American Tacos",
+                    Description = "Made with a hard shell.",
+                    Price = "$0.99",
                     ImageUrl ="american_tacos.png"
                 }
             }));
@@ -40,22 +40,22 @@ namespace MauiLab4
             {
                 new Product
                 {
-                    Name = "Hotdog 1",
-                    Description = "This is a description for Hotdog 1",
-                    Price = "$1.99",
+                    Name = "Hotdog",
+                    Description = "Classic Hot Dog.",
+                    Price = "$1.45",
                     ImageUrl ="plain_hot_dog.png"
                 },
                 new Product
                 {
-                    Name = "Hotdog 2",
-                    Description = "This is a description for Hotdog 2",
-                    Price = "$1.99",
+                    Name = "Chili Dog",
+                    Description = "Chili Dog, made with chili and onion.",
+                    Price = "$2.99",
                     ImageUrl ="chili_hot_dog.png"
                 },
                 new Product
                 {
-                    Name = "Hotdog 3",
-                    Description = "This is a description for Hotdog 3",
+                    Name = "Veggie Dog",
+                    Description = "Hot dog with guacamole.",
                     Price = "$1.99",
                     ImageUrl ="veggie_hot_dog.png"
                 }
@@ -65,23 +65,23 @@ namespace MauiLab4
             {
                 new Product
                 {
-                    Name = "Hamburger 1",
-                    Description = "This is a description for Hamburger 1",
-                    Price = "$1.99",
+                    Name = "Hamburger",
+                    Description = "Basic hamburger.",
+                    Price = "$2.45",
                     ImageUrl ="plain_burger.png"
                 },
                 new Product
                 {
-                    Name = "Hamburger 2",
-                    Description = "This is a description for Hamburger 2",
-                    Price = "$1.99",
+                    Name = "Bic Mac style Burger",
+                    Description = "Just like the Big Mac, but with a homemade taste.",
+                    Price = "$3.00",
                     ImageUrl ="big_mac_burger.png"
                 },
                 new Product
                 {
-                    Name = "Hamburger 3",
-                    Description = "This is a description for Hamburger 3",
-                    Price = "$1.99",
+                    Name = "Char Burger",
+                    Description = "Toasted for taste.",
+                    Price = "$3.50",
                     ImageUrl ="char_burger.png"
                 }
             }));
