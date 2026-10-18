@@ -2,6 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
+        public Product SelectedProduct { get; set; }
         public MainPage()
         {
             InitializeComponent();
@@ -20,8 +21,8 @@
             //myListView.RowHeight = 80;
             myListView.BackgroundColor = Colors.DarkGoldenrod;
             myListView.SeparatorColor = Colors.LightCoral;
-            
-            Content = myListView;
+
+
             Title = "Product List";
 
             myListView.ItemTemplate = new DataTemplate(typeof(ListofProductsCell));
@@ -29,13 +30,64 @@
 
             myListView.ItemTapped += async (sender, e) =>
             {
-                Product item = (Product)e.Item;
-                await DisplayAlert("Item Selected", item.Name.ToString() +
-                    " was selected.\nDescription: "+item.Description+"\nPrice: " + item.Price, "Confirm");
+                SelectedProduct = (Product)e.Item;
+                await DisplayAlertAsync("Item Selected", SelectedProduct.Name.ToString() +
+                    " was selected.\nDescription: " + SelectedProduct.Description + "\nPrice: " + SelectedProduct.Price, "Confirm");
                 ((ListView)sender).SelectedItem = null;
             };
 
+            Button invoiceButton = new Button
+            {
+                Text = "Invoice",
+                HorizontalOptions = LayoutOptions.Center,
+                FontSize = 30,
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Colors.White
+            };
+            invoiceButton.Clicked += async (sender, e) =>
+            {
+                if(SelectedProduct == null)
+                {
+                    await DisplayAlertAsync("Warning", "Please select a product first.", "Confirm");
+                    return;
+                }
+                await Navigation.PushAsync(new InvoicePage(SelectedProduct));
+            };
+            Button companyInfoButton = new Button
+            {
+                Text = "Company Info",
+                HorizontalOptions = LayoutOptions.Center,
+                FontSize = 30,
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Colors.White
+            };
+            companyInfoButton.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new CompanyPage());
+            };
 
+
+
+            HorizontalStackLayout buttonLayout = new HorizontalStackLayout
+            {
+                Padding = new Thickness(10, 0, 10, 0),
+                Spacing = 10,
+                Children =
+                {
+                    invoiceButton, companyInfoButton
+                }
+            };
+
+            VerticalStackLayout mainLayout = new VerticalStackLayout
+            {
+                HorizontalOptions = LayoutOptions.Fill,
+                Children =
+                {
+                    buttonLayout, myListView
+                }
+
+            };
+            Content = mainLayout;
         }
 
 
@@ -65,7 +117,7 @@
 
                 VerticalStackLayout vstack = new VerticalStackLayout
                 {
-                    Padding = new Thickness(15,10,15,0),
+                    Padding = new Thickness(15, 10, 15, 0),
                     Spacing = 10,
                     HorizontalOptions = LayoutOptions.Fill,
                     MinimumHeightRequest = 80,
