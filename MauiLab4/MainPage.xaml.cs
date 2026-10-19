@@ -78,15 +78,15 @@
                 }
             };
 
-            VerticalStackLayout mainLayout = new VerticalStackLayout
+            Grid mainLayout = new Grid
             {
-                HorizontalOptions = LayoutOptions.Fill,
-                Children =
-                {
-                    buttonLayout, myListView
-                }
-
+                RowDefinitions = {
+                    new RowDefinition { Height = GridLength.Auto },
+                    new RowDefinition { Height = GridLength.Star }
+                },
             };
+            mainLayout.Add(buttonLayout, 0, 0);
+            mainLayout.Add(myListView, 0, 1);
             Content = mainLayout;
         }
 
